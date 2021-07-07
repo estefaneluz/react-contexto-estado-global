@@ -24,11 +24,7 @@ export default function App() {
   return (
     <div className="App">
     <ContextoCarrinhoProduto.Provider value={valueContext}>
-      <Cabecalho
-        // carrinho={carrinho}
-        // produtos={produtos}
-        // incrementarCarrinho={incrementarCarrinho}
-      />
+      <Cabecalho/>
       <Produtos
         produtos={produtos}
         carrinho={carrinho}
