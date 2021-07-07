@@ -1,7 +1,9 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
+import { ContextoCarrinhoProduto } from "../App";
 import { Produto } from "./Produto";
 
-export function Produtos({ produtos, carrinho, adicionarCarrinho }) {
+export function Produtos() {
+  const { produtos } = useContext(ContextoCarrinhoProduto);
   const secoes = new Set(produtos.map((p) => p.secao));
   return (
     <main className="produtos">
@@ -15,8 +17,6 @@ export function Produtos({ produtos, carrinho, adicionarCarrinho }) {
                 <li key={produto.id}>
                   <Produto
                     {...produto}
-                    qtdCarrinho={carrinho[produto.id] || 0}
-                    adicionarCarrinho={adicionarCarrinho}
                   />
                 </li>
               ))}

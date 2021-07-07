@@ -20,16 +20,14 @@ export default function App() {
       return novoCarrinho;
     });
 
-  const valueContext = {carrinho, produtos, incrementarCarrinho}
+  const adicionarCarrinho=(id) => incrementarCarrinho(id, 1); 
+
+  const valueContext = {carrinho, produtos, incrementarCarrinho, adicionarCarrinho}
   return (
     <div className="App">
     <ContextoCarrinhoProduto.Provider value={valueContext}>
       <Cabecalho/>
-      <Produtos
-        produtos={produtos}
-        carrinho={carrinho}
-        adicionarCarrinho={(id) => incrementarCarrinho(id, 1)}
-      />
+      <Produtos/>
     </ContextoCarrinhoProduto.Provider>
     </div>
   );
