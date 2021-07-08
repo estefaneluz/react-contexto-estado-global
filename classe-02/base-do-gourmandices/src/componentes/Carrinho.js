@@ -5,7 +5,7 @@ export function Carrinho({
   setAberto,
   carrinho,
   produtos,
-  incrementarCarrinho,
+  mudarQtdNoCarrinho,
   removerDoCarrinho
 }) {
   return (
@@ -32,7 +32,7 @@ export function Carrinho({
                   value={qtd}
                   min={1}
                   onChange={(ev) =>
-                    incrementarCarrinho(id, ev.target.valueAsNumber - qtd)
+                    mudarQtdNoCarrinho(id, ev.target.valueAsNumber - qtd)
                   }
                 />{" "}
                 &times; R${formatarDinheiro(produto.preco)} ={" "}

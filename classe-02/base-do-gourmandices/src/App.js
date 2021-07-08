@@ -6,18 +6,25 @@ import "./styles.css";
 
 export default function App() {
   const [carrinho, setCarrinho] = useState({});
-  const incrementarCarrinho = (id, qtd) =>
+
+  const adicionarCarrinho = (id) => {
     setCarrinho((carrinho) => {
       const novoCarrinho = { ...carrinho };
-      novoCarrinho[id] = (novoCarrinho[id] || 0) + qtd;
-
-      if (novoCarrinho[id] === 0) {
-        delete novoCarrinho[id];
-      }
+      novoCarrinho[id] = 1;
 
       return novoCarrinho;
-    });
-    
+  })}
+
+  const mudarQtdNoCarrinho = (id, qtd) =>
+    setCarrinho((carrinho) => {
+      const novoCarrinho = { ...carrinho };
+      novoCarrinho[id] += qtd;
+
+      if(novoCarrinho[id] === 0) removerDoCarrinho(id);
+
+      return novoCarrinho;
+  });
+
   const removerDoCarrinho = (id) => {
     setCarrinho((carrinho) => {
       const novoCarrinho = { ...carrinho };
@@ -31,13 +38,13 @@ export default function App() {
       <Cabecalho
         carrinho={carrinho}
         produtos={produtos}
-        incrementarCarrinho={incrementarCarrinho}
+        mudarQtdNoCarrinho={mudarQtdNoCarrinho}
         removerDoCarrinho={removerDoCarrinho}
       />
       <Produtos
         produtos={produtos}
         carrinho={carrinho}
-        adicionarCarrinho={(id) => incrementarCarrinho(id, 1)}
+        adicionarCarrinho={adicionarCarrinho}
       />
     </div>
   );

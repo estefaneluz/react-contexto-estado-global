@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Carrinho } from "./Carrinho";
 
-export function Cabecalho({ carrinho, incrementarCarrinho, produtos, removerDoCarrinho }) {
+export function Cabecalho({ carrinho, mudarQtdNoCarrinho, produtos, removerDoCarrinho }) {
   const total = Object.values(carrinho).reduce(
     (soma, qtdItemEspecifico) => soma + qtdItemEspecifico,
     0
@@ -21,7 +21,7 @@ export function Cabecalho({ carrinho, incrementarCarrinho, produtos, removerDoCa
             produtos={produtos}
             aberto={carrinhoAberto}
             setAberto={setCarrinhoAberto}
-            incrementarCarrinho={incrementarCarrinho}
+            mudarQtdNoCarrinho={mudarQtdNoCarrinho}
             removerDoCarrinho={removerDoCarrinho}
           />
         </button>
