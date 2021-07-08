@@ -15,34 +15,41 @@ export default function App() {
       novoCarrinho[id] = 1;
 
       return novoCarrinho;
-  })}
+    });
+  };
 
   const mudarQtdNoCarrinho = (id, qtd) =>
     setCarrinho((carrinho) => {
       const novoCarrinho = { ...carrinho };
       novoCarrinho[id] += qtd;
 
-      if(novoCarrinho[id] === 0) removerDoCarrinho(id);
+      if (novoCarrinho[id] === 0) removerDoCarrinho(id);
 
       return novoCarrinho;
-  });
+    });
 
   const removerDoCarrinho = (id) => {
     setCarrinho((carrinho) => {
       const novoCarrinho = { ...carrinho };
       delete novoCarrinho[id];
       return novoCarrinho;
-    })
-  }
+    });
+  };
 
-  const valueContext = {carrinho, produtos, mudarQtdNoCarrinho, adicionarCarrinho, removerDoCarrinho}
-  
+  const valueContext = {
+    carrinho,
+    produtos,
+    mudarQtdNoCarrinho,
+    adicionarCarrinho,
+    removerDoCarrinho,
+  };
+
   return (
     <div className="App">
-    <ContextoCarrinhoProduto.Provider value={valueContext}>
-      <Cabecalho/>
-      <Produtos/>
-    </ContextoCarrinhoProduto.Provider>
+      <ContextoCarrinhoProduto.Provider value={valueContext}>
+        <Cabecalho />
+        <Produtos />
+      </ContextoCarrinhoProduto.Provider>
     </div>
   );
 }
