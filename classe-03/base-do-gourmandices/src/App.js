@@ -8,7 +8,7 @@ export const ContextoCarrinhoProduto = createContext();
 
 export default function App() {
   const [carrinho, setCarrinho] = useState({});
-  
+
   const adicionarCarrinho = (id) => {
     setCarrinho((carrinho) => {
       const novoCarrinho = { ...carrinho };
@@ -35,7 +35,8 @@ export default function App() {
     })
   }
 
-  const valueContext = {carrinho, produtos, incrementarCarrinho, adicionarCarrinho}
+  const valueContext = {carrinho, produtos, mudarQtdNoCarrinho, adicionarCarrinho, removerDoCarrinho}
+  
   return (
     <div className="App">
     <ContextoCarrinhoProduto.Provider value={valueContext}>

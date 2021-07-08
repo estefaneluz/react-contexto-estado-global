@@ -7,7 +7,7 @@ export function Carrinho({
   setAberto
 }) 
 {
-  const {carrinho, produtos, mudarQtdNoCarrinho} = useContext(ContextoCarrinhoProduto)
+  const {carrinho, produtos, mudarQtdNoCarrinho, removerDoCarrinho} = useContext(ContextoCarrinhoProduto)
 
   return (
     <div
@@ -42,7 +42,7 @@ export function Carrinho({
               <button
                 className="botao-carrinho"
                 aria-label="Remover do carrinho"
-                onClick={() => mudarQtdNoCarrinho(id, -qtd)}
+                onClick={() => removerDoCarrinho(id)}
               >
                 &times;
               </button>
