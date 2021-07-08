@@ -17,6 +17,14 @@ export default function App() {
 
       return novoCarrinho;
     });
+    
+  const removerDoCarrinho = (id) => {
+    setCarrinho((carrinho) => {
+      const novoCarrinho = { ...carrinho };
+      delete novoCarrinho[id];
+      return novoCarrinho;
+    })
+  }
 
   return (
     <div className="App">
@@ -24,6 +32,7 @@ export default function App() {
         carrinho={carrinho}
         produtos={produtos}
         incrementarCarrinho={incrementarCarrinho}
+        removerDoCarrinho={removerDoCarrinho}
       />
       <Produtos
         produtos={produtos}

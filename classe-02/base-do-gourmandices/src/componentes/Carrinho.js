@@ -5,7 +5,8 @@ export function Carrinho({
   setAberto,
   carrinho,
   produtos,
-  incrementarCarrinho
+  incrementarCarrinho,
+  removerDoCarrinho
 }) {
   return (
     <div
@@ -40,7 +41,7 @@ export function Carrinho({
               <button
                 className="botao-carrinho"
                 aria-label="Remover do carrinho"
-                onClick={() => incrementarCarrinho(id, -qtd)}
+                onClick={() => removerDoCarrinho(id)}
               >
                 &times;
               </button>
