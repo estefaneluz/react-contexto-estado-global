@@ -7,7 +7,7 @@ export function Carrinho({
   setAberto
 }) 
 {
-  const {carrinho, produtos, incrementarCarrinho} = useContext(ContextoCarrinhoProduto)
+  const {carrinho, produtos, mudarQtdNoCarrinho} = useContext(ContextoCarrinhoProduto)
 
   return (
     <div
@@ -33,7 +33,7 @@ export function Carrinho({
                   value={qtd}
                   min={1}
                   onChange={(ev) =>
-                    incrementarCarrinho(id, ev.target.valueAsNumber - qtd)
+                    mudarQtdNoCarrinho(id, ev.target.valueAsNumber - qtd)
                   }
                 />{" "}
                 &times; R${formatarDinheiro(produto.preco)} ={" "}
@@ -42,7 +42,7 @@ export function Carrinho({
               <button
                 className="botao-carrinho"
                 aria-label="Remover do carrinho"
-                onClick={() => incrementarCarrinho(id, -qtd)}
+                onClick={() => mudarQtdNoCarrinho(id, -qtd)}
               >
                 &times;
               </button>
